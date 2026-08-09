@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Projects — Om Jaiswal</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.filter-row{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:2rem;}
+.f-btn{font-family:var(--mono);font-size:.63rem;padding:.38rem .9rem;background:transparent;border:1px solid var(--border);border-radius:100px;color:var(--muted);cursor:pointer;transition:all .2s;letter-spacing:.08em;text-transform:uppercase;}
+.f-btn.active,.f-btn:hover{border-color:var(--accent);color:var(--accent);}
+.f-btn.active{background:rgba(200,240,74,.08);}
+.project-card{background:var(--bg);padding:1.75rem;display:flex;flex-direction:column;gap:.7rem;transition:background .25s;position:relative;overflow:hidden;}
+.project-card::after{content:'';position:absolute;top:0;left:0;bottom:0;width:2px;background:var(--accent);transform:scaleY(0);transform-origin:top;transition:transform .35s var(--ease);}
+.project-card:hover{background:var(--bg2);}
+.project-card:hover::after{transform:scaleY(1);}
+.project-card:hover .card-title{color:var(--accent);}
+.hidden{display:none;}
+</style>
+</head>
+<body>
+<div id="cur"></div><div id="cur-ring"></div>
+<nav>
+  <a class="nav-logo" href="index.html">om.dev</a>
+  <div class="nav-links">
+    <a href="education.html">Education</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="certifications.html">Certifications</a>
+    <a href="opensource.html">Open Source</a>
+  </div>
+  <a class="nav-cta" href="mailto:omjaiswal@example.com">Hire Me</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-num reveal">02 — Projects</div>
+    <div class="page-title reveal delay-1">What I've<br><em>Built</em></div>
+    <div class="page-desc reveal delay-2">6+ projects spanning ML systems, blockchain applications, and full-stack platforms — many with live demos and real-world deployments.</div>
+  </div>
+</div>
+
+<section class="section no-border">
+  <div class="section-inner">
+    <div class="filter-row reveal" id="filterRow">
+      <button class="f-btn active" onclick="filterProjects('all',this)">All</button>
+      <button class="f-btn" onclick="filterProjects('data',this)">Data &amp; ML</button>
+      <button class="f-btn" onclick="filterProjects('web3',this)">Web3</button>
+      <button class="f-btn" onclick="filterProjects('web',this)">Full-Stack</button>
+    </div>
+
+    <div class="cards-grid" id="projectsGrid">
+      <!-- HR Attrition -->
+      <div class="project-card" data-cat="data">
+        <div class="card-icon">📉</div>
+        <span class="card-badge data">Data · ML</span>
+        <div class="card-title">HR Attrition &amp; Data Analyzer</div>
+        <div class="card-desc">ML-powered system to predict and analyze employee attrition. Classification models, EDA, feature importance, and interactive Power BI dashboards for HR insights.</div>
+        <div class="card-stack">
+          <span class="stack-tag">Python</span><span class="stack-tag">Pandas</span><span class="stack-tag">Scikit-learn</span><span class="stack-tag">Power BI</span><span class="stack-tag">EDA</span>
+        </div>
+        <div class="card-links">
+          <a class="proj-link live" href="https://data-analyzer-9jps.onrender.com/" target="_blank">↗ Live Demo</a>
+          <a class="proj-link gh" href="https://github.com/jswlom" target="_blank">⌥ GitHub</a>
+        </div>
+      </div>
+
+      <!-- HealthChain -->
+      <div class="project-card" data-cat="web3">
+        <div class="card-icon">🔗</div>
+        <span class="card-badge">Patent Filed</span>
+        <div class="card-title">HealthChain</div>
+        <div class="card-desc">Blockchain-based Electronic Health Records system with role-based access control, smart contracts for real-time permissions, and MongoDB + IPFS hybrid storage. Patent filed Jan 2026.</div>
+        <div class="card-stack">
+          <span class="stack-tag">React.js</span><span class="stack-tag">Solidity</span><span class="stack-tag">Node.js</span><span class="stack-tag">MongoDB</span><span class="stack-tag">IPFS</span>
+        </div>
+        <div class="card-links">
+          <a class="proj-link live" href="https://healthchain-frontend.vercel.app/" target="_blank">↗ Live Demo</a>
+          <a class="proj-link gh" href="https://github.com/jswlom" target="_blank">⌥ GitHub</a>
+        </div>
+      </div>
+
+      <!-- Sales Analytics -->
+      <div class="project-card" data-cat="data">
+        <div class="card-icon">📊</div>
+        <span class="card-badge data">Analytics</span>
+        <div class="card-title">Sales &amp; Retail Analytics</div>
+        <div class="card-desc">Cleaned and analyzed retail sales data to uncover revenue trends, seasonality, and product performance. Interactive Power BI dashboard for business insights.</div>
+        <div class="card-stack">
+          <span class="stack-tag">Python</span><span class="stack-tag">Pandas</span><span class="stack-tag">NumPy</span><span class="stack-tag">Power BI</span><span class="stack-tag">Jupyter</span>
+        </div>
+        <div class="card-links">
+          <a class="proj-link gh" href="https://github.com/jswlom" target="_blank">⌥ GitHub</a>
+        </div>
+      </div>
+
+      <!-- AI Voice Detection -->
+      <div class="project-card" data-cat="data">
+        <div class="card-icon">🎙</div>
+        <span class="card-badge data">ML · API</span>
+        <div class="card-title">AI Voice Detection System</div>
+        <div class="card-desc">ML-based audio classification with real-time REST API. Audio preprocessing, feature extraction via Librosa, model inference deployed with FastAPI + Uvicorn.</div>
+        <div class="card-stack">
+          <span class="stack-tag">Python</span><span class="stack-tag">FastAPI</span><span class="stack-tag">Librosa</span><span class="stack-tag">NumPy</span><span class="stack-tag">Uvicorn</span>
+        </div>
+        <div class="card-links">
+          <a class="proj-link gh" href="https://github.com/jswlom" target="_blank">⌥ GitHub</a>
+        </div>
+      </div>
+
+      <!-- Hospital Management -->
+      <div class="project-card" data-cat="web">
+        <div class="card-icon">🏥</div>
+        <span class="card-badge web">Full-Stack</span>
+        <div class="card-title">Hospital Management System</div>
+        <div class="card-desc">Full-stack system for patient records, doctor management, appointments, billing, and real-time admin &amp; reception dashboards with live statistics.</div>
+        <div class="card-stack">
+          <span class="stack-tag">HTML/CSS</span><span class="stack-tag">Java</span><span class="stack-tag">SQL</span><span class="stack-tag">Flask</span>
+        </div>
+        <div class="card-links">
+          <a class="proj-link gh" href="https://github.com/jswlom" target="_blank">⌥ GitHub</a>
+        </div>
+      </div>
+
+      <!-- More placeholder card -->
+      <div class="project-card" data-cat="web">
+        <div class="card-icon">🌐</div>
+        <span class="card-badge web">Web · UI</span>
+        <div class="card-title">Portfolio Website</div>
+        <div class="card-desc">This very site — a multi-page portfolio built from scratch in pure HTML, CSS, and vanilla JS. Responsive, animated, and designed with intentional aesthetics.</div>
+        <div class="card-stack">
+          <span class="stack-tag">HTML</span><span class="stack-tag">CSS</span><span class="stack-tag">JavaScript</span>
+        </div>
+        <div class="card-links">
+          <a class="proj-link gh" href="https://github.com/jswlom" target="_blank">⌥ GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="f-text">© 2025 <span>Om Jaiswal</span></div>
+    <div class="f-text">← <a href="index.html" style="color:var(--accent);text-decoration:none;">Back to Home</a></div>
+  </div>
+</footer>
+<script src="main.js"></script>
+<script>
+function filterProjects(cat, btn){
+  document.querySelectorAll('.f-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.project-card').forEach(card=>{
+    const show = cat==='all' || card.dataset.cat===cat;
+    card.style.display = show ? 'flex' : 'none';
+  });
+}
+// Make grid adapt columns based on visible count
+</script>
+</body>
+</html>
