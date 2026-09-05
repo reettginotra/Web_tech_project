@@ -2,7 +2,7 @@
 :root{
   --bg:#06080b;--bg2:#0c0f14;--bg3:#121620;
   --accent:#c8f04a;--accent2:#4ecdc4;--accent3:#f7a34a;
-  --text:#eee9dd;--muted:#545c6e;--border:rgba(255,255,255,0.07);
+  --text:#eee9dd;--muted:#545c6e;--border:rgba(255,250,255,0.07);
   --card:#0f1318;
   --serif:'Instrument Serif',serif;
   --mono:'DM Mono',monospace;
